@@ -16,5 +16,5 @@ git config --global user.name "Sebastion"
 git config --global credential.helper 'cache --timeout=7200'
 
 git clone https://github.com/Opabinia9/holbertonschool-low_level_programming.git
-echo "-Wall -pedantic -Werror -Wextra -std=gnu89" > holbertonschool-low_level_programming/:flags
+echo "-Wall -pedantic -Werror -Wextra -std=gnu89" > holbertonschool-low_level_programming/flags
 source ~/.bashrc
