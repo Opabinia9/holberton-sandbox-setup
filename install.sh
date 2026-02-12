@@ -1,7 +1,7 @@
 #!/bin/bash
-echo "
-export PS1='\e[38;2;136;57;239m\u@sandbox:\w \n>\e[0m'
-" >> ~/.bashrc
+echo '
+export PS1="\e[38;2;136;57;239m\u@sandbox:\w \n>\e[0m"
+' >> ~/.bashrc
 
 echo "\
 alias cm='chmod u+x'\
