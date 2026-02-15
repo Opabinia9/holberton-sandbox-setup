@@ -30,6 +30,9 @@ fi
 if [ ! -d "$HOME/holbertonschool-low_level_programming" ]; then
 	git clone https://github.com/Opabinia9/holbertonschool-low_level_programming.git;
 fi
+if [ ! -d "$HOME/holbertonschool-low_level_programming" ]; then
+	git clone https://github.com/Opabinia9/sandbox_setup.git;
+fi
 
 echo "-Wall -pedantic -Werror -Wextra -std=gnu89" > holbertonschool-low_level_programming/flags
 
