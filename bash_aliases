@@ -1,0 +1,5 @@
+alias cm='chmod u+x'
+alias ga='git add'
+alias gs='git status'
+alias gc='git commit -m'
+alias gp='git push'
