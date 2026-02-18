@@ -10,4 +10,10 @@ oneliner for me
 source <(wget -qO- https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/Opabinia9.sh)
 
 TODO:  
-ADD AUTO STARTED TIMER  
+ADD AUTO STARTED TIMER
+git prompt parts:
+\#git branch
+\#unstaged
+\#untracked
+\#behind/ahead of
+\#unpushed
