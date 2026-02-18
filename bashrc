@@ -5,15 +5,21 @@ source $HOME/.bash_aliases;
 MPC="\[\e[38;2;25;249;216m\]";
 AE="\[\e[0m\]";
 
-function parse_git_dirty() {
-        [[ $(git status --porcelain 2> /dev/null) ]] && echo "*";
+VCS_F_UNTRACKED(){
+	VCS_UNTRACKED=$(git status --porcelain | grep "??" | wc -l);
+	VCS_S_UNTRACKED="?"
+	if [[ "$VCS_UNTRACKED" > 0 ]]; then
+		echo "$VCS_S_UNTRACKED$VCS_UNT";
+	fi
 }
-function parse_git_branch() {
-        git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(parse_git_dirty))/";
+
+VCS_PROMPT(){
+	VCS_BRANCH=$(git branch --show-current);
+	echo "($VCS_BRANCH $(VCS_F_UNTRACKED)"
 }
 prompt() {
 	L1="\u@sandbox:\w jobs:\j";
-	R1="$(parse_git_branch)";
+	R1="$(VCS_PROMPT)";
 	L2="\n>$AE";
         PS1=$(printf "%s%*s%s%s" "$MPC" "$(tput cols)" "$R1\r" "$L1" "$L2");
 }
