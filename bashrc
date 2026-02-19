@@ -10,17 +10,25 @@ AE="$(tput sgr0)";
 
 ###VCS_PROMPT
 VCS_F_UNTRACKED(){
-	VCS_UNTRACKED=$(git status --porcelain | grep "??" | wc -l);
+	VCS_UNTRACKED=$(git status --porcelain |sed 's/^ //'| grep ^"??" | wc -l);
 	VCS_S_UNTRACKED="?"
 	if [[ "$VCS_UNTRACKED" > 0 ]]; then
-		echo "$VCS_S_UNTRACKED$VCS_UNT";
+		echo "$VCS_S_UNTRACKED$VCS_UNT" | xargs;
+	fi
+}
+
+VCS_F_UNSTAGED(){
+	VCS_UNSTAGED=$(git status --porcelain |sed 's/^ //'| grep ^M | wc -l);
+	VCS_S_UNSTAGED="!"
+	if [[ "$VCS_UNSTAGED" > 0 ]]; then
+		echo "$VCS_S_UNSTAGED$VCS_UNT" | xargs;
 	fi
 }
 
 VCS_PROMPT(){
 	VCS_BRANCH=$(git branch --show-current 2>/dev/null);
 	if [ "$VCS_BRANCH" ]; then
-		echo "($VCS_BRANCH $(VCS_F_UNTRACKED)"
+		echo "($VCS_BRANCH $(VCS_F_UNTRACKED) $(VCS_F_UNSTAGED)"
 	fi
 }
 
