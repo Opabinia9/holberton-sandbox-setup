@@ -8,11 +8,11 @@ CYAN="\[\e[38;2;25;249;216m\]";
 MPC=$CYAN;
 
 ###VCS_PROMPT
-       meta='%246F'  # grey foreground
-      clean='%76F'   # green foreground
-   modified='%178F'  # yellow foreground
-  untracked='%39F'   # blue foreground
- conflicted='%196F'  # red foreground
+       meta='\[%246F\]'  # grey foreground
+      clean='\[%76F\]'   # green foreground
+   modified='\[%178F\]'  # yellow foreground
+  untracked='\[%39F\]'   # blue foreground
+ conflicted='\[%196F\]'  # red foreground
 
 VCS_F_UNTRACKED(){
 	VCS_UNTRACKED=$(git status --porcelain |sed 's/^ //'| grep ^"??" | wc -l);
