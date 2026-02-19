@@ -15,8 +15,8 @@ gitsetup()
 
 rmdf()
 {
-		DF=("");
-		read -p "Would you like to remove the defualt folders and files from the holberton sandbox\n$DF\ny/n: " -r remove;
+		DF=("empty_directory" "git-intro" "my_school" "not_here" "old_school" "ready_to_be_removed" "school");
+		read -p $'Would you like to remove the defualt folders and files from the holberton sandbox\n$DF\ny/n: ' -r remove;
 		if [[ "$remove" == "y" ]];then
 			for d in $DF; do
 				echo "removing defualts!";
@@ -29,12 +29,12 @@ rmdf()
 
 if [[ $SHELL == *bash ]]; then
 	echo "WARNING: UNTESETED";
-	read -p "continue: y/n" ans;
+	read -p "continue: y/n " ans;
 	if [[ "$ans" == "y" ]]; then
 		echo "Hello and thank you for picking me :)";
-		read -p "Please enter your username" UN;
-		read -p "Please enter your name" NAME;
-		read -p "Please enter your email" EMAIL;
+		read -p "Please enter your username " UN;
+		read -p "Please enter your name " NAME;
+		read -p "Please enter your email " EMAIL;
 		REPOS=("git-intro" "holbertonschool-shell" "holbertonschool-low_level_programming");
 
 		rmdf;
