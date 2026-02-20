@@ -12,8 +12,8 @@ so if you are not useing it on that it's behavoure may be unpreditable.
 that said, feel free to download it, and change it to fit you needs, have fun  
 enjoy  
 
-[![asciicast](https://asciinema.org/a/LgiswGfP0a0rJROd.svg)](https://asciinema.org/a/LgiswGfP0a0rJROd)
+![asciinema]( https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/holbyV1.gif)  
 
 TODO:  
-Add auto started timer
+Add auto started timer  
 add diffrent colors to git prompt
