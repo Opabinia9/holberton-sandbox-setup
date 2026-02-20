@@ -4,6 +4,9 @@ source $HOME/.bash_aliases;
 
 ###Colors
 CYAN="\[\e[38;2;25;249;216m\]";
+clean="\[\e[38;2;93;213;3m\]";   # green foreground
+modified="\[\e[38;2;211;173;3m\]";  # yellow foreground
+untracked="\[\e[38;2;0;172;253m\]";  # blue foreground
 
 MPC=$CYAN;
 AE="\[\e[0m\]";
@@ -56,9 +59,6 @@ VCS_F_AHEAD(){
 }
 
 VCS_PROMPT(){
-	clean="\[\e[38;2;93;213;3m\]";   # green foreground
-	modified="\[\e[38;2;211;173;3m\]";  # yellow foreground
-	untracked="\[\e[38;2;0;172;253m\]";  # blue foreground
 	VCS_BRANCH=$(git branch --show-current 2>/dev/null);
 	if [ "$VCS_BRANCH" ]; then
 		echo -n "($VCS_BRANCH$(VCS_F_BEHIND)$(VCS_F_AHEAD)$(VCS_F_UNCOMMITED)$(VCS_F_UNSTAGED)$(VCS_F_UNTRACKED))";
@@ -70,6 +70,6 @@ prompt() {
 	L1="\u@sandbox:\w jobs:\j";
 	R1="$(VCS_PROMPT)";
 	L2="\n>$AE";
-	PS1=$(printf "%s%*s%s%s" "$MPC" "$(tput cols)" "$R1\r" "$L1" "$L2");
+	PS1=$(printf "%s%*s%s%s%s" "$clean" "$(tput cols)" "$R1\r" "$MPC" "$L1" "$L2");
 }
 PROMPT_COMMAND=prompt
