@@ -8,9 +8,6 @@ CYAN="\[\e[38;2;25;249;216m\]";
 MPC=$CYAN;
 
 ###VCS_PROMPT
-     clean='\[\e[38;2;93;213;3m\]'   # green foreground
-  modified='\[\e[38;2;211;173;3m\]'  # yellow foreground
- untracked='\[\e[38;2;0;172;253m\]'   # blue foreground
 
 VCS_F_UNTRACKED(){
 	VCS_UNTRACKED=$(git status --porcelain |sed 's/^ //'| grep ^"??" | wc -l);
@@ -58,6 +55,9 @@ VCS_F_AHEAD(){
 }
 
 VCS_PROMPT(){
+	clean="\[\e[38;2;93;213;3m\]";   # green foreground
+	modified="\[\e[38;2;211;173;3m\]";  # yellow foreground
+	untracked="\[\e[38;2;0;172;253m\]";  # blue foreground
 	VCS_BRANCH=$(git branch --show-current 2>/dev/null);
 	if [ "$VCS_BRANCH" ]; then
 		echo "${clean}($VCS_BRANCH$(VCS_F_BEHIND)$(VCS_F_AHEAD)$(VCS_F_UNCOMMITED)$(VCS_F_UNSTAGED)$(VCS_F_UNTRACKED)${clean})$(tput sgr0)"
