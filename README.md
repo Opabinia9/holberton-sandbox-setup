@@ -1,5 +1,5 @@
-Hello all,
-this is a script i made to set up the holberton school sandboxes just the way i like
+Hello all,  
+this is a script i made to set up the holberton school sandboxes just the way i like  
 AND NOW!  
 i have made the install script userfriendly (probably :)  
 so using the command bellow it you should be able to use it  
