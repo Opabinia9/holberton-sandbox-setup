@@ -1,19 +1,19 @@
-Hello All, this is a script and files i use to setup my sandboxes that i use for holberton school australia
-right now it's setup so i can just enter the line bellow and it gets all my repos and usernames
-HOWEVER, i do plan on creating a secondary script that works for other people, so they just provide there names and repos a arguments
-also, feel free to fork this and make your own, set for your own prefrences and specific needs
-enjoy
-  
-WARNING: CURRENT INSTALL SHELL IS UNTESTED  
+Hello all,
+i have made the install script userfriendly (probably :)  
+so using the command bellow it you should be able to use it  
+source <(wget -qO- https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/install.sh)  
+or  
+wget -q https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/install.sh  
+if you want to download it and change a few things before running  
 
-oneliner for me  
-source <(wget -qO- https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/Opabinia9.sh)
+WARNING:  
+to be clear this script and setup has only been tested and use on the Holberton School Ubuntu sandboxes,
+so if you are not useing it on that it's behavoure may be unpreditable.
+that said, feel free to download it, and change it to fit you needs, have fun  
+enjoy  
+
+![gif of script in use]()  
 
 TODO:  
-ADD AUTO STARTED TIMER
-git prompt parts:
-\#git branch
-\#unstaged
-\#untracked
-\#behind/ahead of
-\#unpushed
+Add auto started timer
+add diffrent colors to git prompt
