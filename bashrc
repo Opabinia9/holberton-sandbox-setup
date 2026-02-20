@@ -16,7 +16,7 @@ VCS_F_UNTRACKED(){
 	VCS_UNTRACKED=$(git status --porcelain |sed 's/^ //'| grep ^"??" | wc -l);
 	VCS_S_UNTRACKED="?"
 	if [[ "$VCS_UNTRACKED" > 0 ]]; then
-		VCS_P_UNTRACKED = "${untracked}${VCS_S_UNTRACKED}${VCS_UNTRACKED}";
+		VCS_P_UNTRACKED="${untracked}${VCS_S_UNTRACKED}${VCS_UNTRACKED}";
 		echo " " | cat - <(echo "${VCS_P_UNTRACKED}" | xargs) | tr -d '\n';
 	fi
 }
@@ -25,7 +25,7 @@ VCS_F_UNSTAGED(){
 	VCS_UNSTAGED=$(git status --porcelain |sed 's/^ //'| grep ^M | wc -l);
 	VCS_S_UNSTAGED="!"
 	if [[ "$VCS_UNSTAGED" > 0 ]]; then
-		VCS_P_UNSTAGED = "${modified}${VCS_S_UNSTAGED}${VCS_UNSTAGED}";
+		VCS_P_UNSTAGED="${modified}${VCS_S_UNSTAGED}${VCS_UNSTAGED}";
 		echo " " | cat - <(echo "${VCS_P_UNSTAGED}" | xargs) | tr -d '\n';
 	fi
 }
@@ -34,7 +34,7 @@ VCS_F_UNCOMMITED(){
 	VCS_UNCOMMITED=$(git status --porcelain |sed 's/^ //'| grep ^"A" | wc -l);
 	VCS_S_UNCOMMITED="+"
 	if [[ "$VCS_UNCOMMITED" > 0 ]]; then
-		VCS_P_UNCOMMITED = "${modified}${VCS_S_UNCOMMITED}${VCS_UNCOMMITED}";
+		VCS_P_UNCOMMITED="${modified}${VCS_S_UNCOMMITED}${VCS_UNCOMMITED}";
 		echo " " | cat - <(echo "${VCS_P_UNCOMMITED}" | xargs) | tr -d '\n';
 	fi
 }
@@ -43,7 +43,7 @@ VCS_F_BEHIND(){
 	VCS_BEHIND=$(git rev-list --count HEAD..@{u});
 	VCS_S_BEHIND="⇣"
 	if [[ "$VCS_BEHIND" > 0 ]]; then
-		VCS_P_BEHIND = "${clean}${VCS_S_BEHIND}${VCS_BEHIND}";
+		VCS_P_BEHIND="${clean}${VCS_S_BEHIND}${VCS_BEHIND}";
 		echo " " | cat - <(echo "${VCS_P_BEHIND}" | xargs) | tr -d '\n';
 	fi
 }
@@ -52,7 +52,7 @@ VCS_F_AHEAD(){
 	VCS_AHEAD=$(git rev-list --count @{u}..HEAD);
 	VCS_S_AHEAD="⇡"
 	if [[ "$VCS_AHEAD" > 0 ]]; then
-		VCS_P_AHEAD = "${clean}${VCS_S_AHEAD}${VCS_AHEAD}";
+		VCS_P_AHEAD="${clean}${VCS_S_AHEAD}${VCS_AHEAD}";
 		echo " " | cat - <(echo "${VCS_P_AHEAD}" | xargs) | tr -d '\n';
 	fi
 }
