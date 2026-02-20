@@ -6,6 +6,7 @@ source $HOME/.bash_aliases;
 CYAN="\[\e[38;2;25;249;216m\]";
 
 MPC=$CYAN;
+AE="\[\e[0m\]";
 
 ###VCS_PROMPT
 
@@ -14,7 +15,7 @@ VCS_F_UNTRACKED(){
 	VCS_S_UNTRACKED="?"
 	if [[ "$VCS_UNTRACKED" > 0 ]]; then
 		VCS_P_UNTRACKED="${VCS_S_UNTRACKED}${VCS_UNTRACKED}";
-		echo "$(tput sgr0) ${untracked}" | cat - <(echo "${VCS_P_UNTRACKED}" | xargs) | tr -d '\n';
+		echo -n " " | cat - <(echo -n "${VCS_P_UNTRACKED}" | xargs) | tr -d '\n';
 	fi
 }
 
@@ -23,7 +24,7 @@ VCS_F_UNSTAGED(){
 	VCS_S_UNSTAGED="!"
 	if [[ "$VCS_UNSTAGED" > 0 ]]; then
 		VCS_P_UNSTAGED="${VCS_S_UNSTAGED}${VCS_UNSTAGED}";
-		echo "$(tput sgr0) ${modified}" | cat - <(echo "${VCS_P_UNSTAGED}" | xargs) | tr -d '\n';
+		echo -n " " | cat - <(echo -n "${VCS_P_UNSTAGED}" | xargs) | tr -d '\n';
 	fi
 }
 
@@ -32,7 +33,7 @@ VCS_F_UNCOMMITED(){
 	VCS_S_UNCOMMITED="+"
 	if [[ "$VCS_UNCOMMITED" > 0 ]]; then
 		VCS_P_UNCOMMITED="${VCS_S_UNCOMMITED}${VCS_UNCOMMITED}";
-		echo "$(tput sgr0) ${modified}" | cat - <(echo "${VCS_P_UNCOMMITED}" | xargs) | tr -d '\n';
+		echo -n " " | cat - <(echo -n "${VCS_P_UNCOMMITED}" | xargs) | tr -d '\n';
 	fi
 }
 
@@ -41,7 +42,7 @@ VCS_F_BEHIND(){
 	VCS_S_BEHIND="⇣"
 	if [[ "$VCS_BEHIND" > 0 ]]; then
 		VCS_P_BEHIND="${VCS_S_BEHIND}${VCS_BEHIND}";
-		echo "$(tput sgr0) ${clean}" | cat - <(echo "${VCS_P_BEHIND}" | xargs) | tr -d '\n';
+		echo -n " " | cat - <(echo -n "${VCS_P_BEHIND}" | xargs) | tr -d '\n';
 	fi
 }
 
@@ -50,7 +51,7 @@ VCS_F_AHEAD(){
 	VCS_S_AHEAD="⇡"
 	if [[ "$VCS_AHEAD" > 0 ]]; then
 		VCS_P_AHEAD="${VCS_S_AHEAD}${VCS_AHEAD}";
-		echo "$(tput sgr0) ${clean}" | cat - <(echo "${VCS_P_AHEAD}" | xargs) | tr -d '\n';
+		echo -n " " | cat - <(echo -n "${VCS_P_AHEAD}" | xargs) | tr -d '\n';
 	fi
 }
 
@@ -60,7 +61,7 @@ VCS_PROMPT(){
 	untracked="\[\e[38;2;0;172;253m\]";  # blue foreground
 	VCS_BRANCH=$(git branch --show-current 2>/dev/null);
 	if [ "$VCS_BRANCH" ]; then
-		echo "${clean}($VCS_BRANCH$(VCS_F_BEHIND)$(VCS_F_AHEAD)$(VCS_F_UNCOMMITED)$(VCS_F_UNSTAGED)$(VCS_F_UNTRACKED)${clean})$(tput sgr0)"
+		echo -n "($VCS_BRANCH$(VCS_F_BEHIND)$(VCS_F_AHEAD)$(VCS_F_UNCOMMITED)$(VCS_F_UNSTAGED)$(VCS_F_UNTRACKED))";
 	fi
 }
 
@@ -68,7 +69,7 @@ VCS_PROMPT(){
 prompt() {
 	L1="\u@sandbox:\w jobs:\j";
 	R1="$(VCS_PROMPT)";
-	L2="\n>$(tput sgr0)";
-        PS1=$(printf "%s%*s%s%s" "$MPC" "$(tput cols)" "$R1\r" "$L1" "$L2");
+	L2="\n>$AE";
+	PS1=$(printf "%s%*s%s%s" "$MPC" "$(tput cols)" "$R1\r" "$L1" "$L2");
 }
 PROMPT_COMMAND=prompt
