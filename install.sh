@@ -33,33 +33,29 @@ rmdf()
 }
 
 if [[ $SHELL == *bash ]]; then
-	echo "WARNING: UNTESETED";
-	read -p "continue: y/n " ans;
-	if [[ "$ans" == "y" ]]; then
-		echo "Hello and thank you for picking me :)";
-		read -p "Please enter your username :" UN;
-		read -p "Please enter your name :" NAME;
-		read -p "Please enter your email :" EMAIL;
+	echo "Hello and thank you for picking me :)";
+	read -p "Please enter your username :" UN;
+	read -p "Please enter your name :" NAME;
+	read -p "Please enter your email :" EMAIL;
 
-		rmdf;
+	rmdf;
 
-		echo "hello, getting bashrc and saving your old one";
-		if [[ -f ~/.bashrc ]]; then
-			mv $HOME/.bashrc $HOME/.bashrc.bak;
-		fi
-		wget -qO ~/.bashrc https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/bashrc;
-
-		echo "getting aliases and saving your old ones";
-		if [[ -f $HOME/.bash_aliases ]]; then
-			mv $HOME/.bash_aliases $HOME/.bash_aliases.bak;
-		fi
-		wget -qO ~/.bash_aliases https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/bash_aliases;
-
-		echo "configuring git";
-		gitsetup "$UN" "$EMAIL" "$NAME";
-
-		source ~/.bashrc;
+	echo "hello, getting bashrc and saving your old one";
+	if [[ -f ~/.bashrc ]]; then
+		mv $HOME/.bashrc $HOME/.bashrc.bak;
 	fi
+	wget -qO ~/.bashrc https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/bashrc;
+
+	echo "getting aliases and saving your old ones";
+	if [[ -f $HOME/.bash_aliases ]]; then
+		mv $HOME/.bash_aliases $HOME/.bash_aliases.bak;
+	fi
+	wget -qO ~/.bash_aliases https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/bash_aliases;
+
+	echo "configuring git";
+	gitsetup "$UN" "$EMAIL" "$NAME";
+
+	source ~/.bashrc;
 else
 	echo "Sorry, this is ment for bash not $SHELL";
 fi
