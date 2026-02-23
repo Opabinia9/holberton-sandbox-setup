@@ -70,3 +70,16 @@ prompt() {
 	PS1=$(printf "%s%*s%s%s%s" "$GREEN" "$(tput cols)" "$R1\r" "$MPC" "$L1" "$L2");
 }
 PROMPT_COMMAND=prompt
+
+###tools
+newtask() {
+	touch $1;
+	echo '#include "main.h"' >> $1;
+	echo "" >> $1;
+	echo "/**" >> $1;
+	echo " * $2 -" >> $1;
+	echo " */" >> $1;
+	echo "$2" >> $1;
+	echo "{" >> $1;
+	echo "}" >> $1;
+}
