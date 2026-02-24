@@ -69,13 +69,12 @@ VCS_PROMPT(){
 
 AGE()
 {
-	agefile="$home/.age"
+	agefile=~/.age
 	if [ "$1" == "RESET" ]; then
 		touch $agefile;
 	elif [ $(($(date +%s) - $(date +%s -r $agefile))) -gt "12600" ]; then
-		echo "\n\[\e[38;5;231;48;2;210;15;57m\]SANDBOX OVER 3 AND A HALF HOURS OLD!!!\nenter 'AGE RESET' to reset this warning";
+		echo -n "\n\[\e[38;5;231;48;2;210;15;57m\]SANDBOX OVER 3 AND A HALF HOURS OLD!!!\nenter 'AGE RESET' to reset this warning$AE";
 	fi
-	
 }
 
 ###PROMPT
