@@ -28,6 +28,9 @@ enjoy
     - [x] newtask function - creates a new c file with a basic setup, to use it pass the
           file name and function prototype space seperated and enclosed in double qutes:
           newtask "func.c" "int func(int s, int n)"
+### V 1.0.2:
+    - [x] added AGE function to prompt: after 3.5 hours will print a red warning,  
+          reset with AGE RESET
 ## TODO:  
     - [ ] Add auto started timer  
     - [ ] add diffrent colors to git prompt
