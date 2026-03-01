@@ -56,7 +56,7 @@ if [[ $SHELL == *bash ]]; then
 	if [[ -f ~/._vimrc ]]; then
 		mv $HOME/.vimrc $HOME/.vimrc.bak;
 	fi
-	wget -qO ~/.vim https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/vimrc;
+	wget -qO ~/.vimrc https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/vimrc;
 	
 	echo "configuring git";
 	gitsetup "$UN" "$EMAIL" "$NAME";
