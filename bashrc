@@ -102,6 +102,6 @@ newtask() {
 bettypush(){
 	betty $1;
 	read -p "all good? if yes enter commit message: " m;
-  git commit -m "$m" &&
-  git push &&
+	git commit -m "$m" &&
+	git push;
 }
