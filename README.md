@@ -2,10 +2,13 @@
 this is a script i made to set up the holberton school sandboxes just the way i like  
 AND NOW!  
 i have made the install script userfriendly (probably :)  
-so using the command bellow it you should be able to use it  
-``source <(wget -qO- https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/install.sh)``  
+so using the command bellow it you should be able to use it:
+
+    source <(wget -qO- https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/install.sh)  
 or  
-``wget -q https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/install.sh``  
+
+    wget -q https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/install.sh
+  
 if you want to download it and change a few things before running  
 
 > [!WARNING:]  
@@ -31,10 +34,11 @@ enjoy
 ### V 1.0.2:
     - [x] added AGE function to prompt: after 3.5 hours will print a red warning,  
           reset with AGE RESET
+### V 1.0.3:
+    - [ ] added vimrc
+    - [ ] added bettypush function
+          run ``bettypush "filename"`` to check it with betty, then commit and push if its good
 ## TODO:  
-    - [ ] Add auto started timer  
     - [ ] add diffrent colors to git prompt
-    - [ ] add vimrc
 --- 
-
 ![asciinema]( https://raw.githubusercontent.com/Opabinia9/holberton-sandbox-setup/refs/heads/main/holbyV1.gif)  
