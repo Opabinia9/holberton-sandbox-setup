@@ -17,8 +17,6 @@ gitsetup()
 rmdf()
 {
 		DF=("empty_directory" "my_school" "not_here" "old_school" "ready_to_be_removed" "school");
-		echo "Would you like to remove the defualt folders and files from the holberton sandbox";
-		echo "${DF[*]}";
 		remove="y";
 		if [[ "$remove" == "y" ]];then
 			echo "removing defualts!";
