@@ -8,6 +8,7 @@ hi CursorLine term=none cterm=none ctermbg=8
 hi CursorLineNr term=bold cterm=none ctermfg=Yellow gui=bold guifg=Yellow guibg=NONE ctermbg=NONE
 hi Normal guibg=NONE ctermbg=NONE
 hi LineNr ctermbg=NONE
+set whichwrap+=<,>,h,l,[,]
 set showcmd
 set formatoptions=r
 syntax enable
@@ -18,7 +19,30 @@ set incsearch
 set ignorecase
 set smartcase
 set ttyfast
+set autoread                " Automatically reload files changed outside vim
+set mouse=a                 " Enable mouse support
 set background=dark
+
+"command binding
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
+"keybinding
+" Clear search highlighting with Escape
+nnoremap <Esc> :nohlsearch<CR>
+
+" Quick save and quit
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>x :x<CR>
+
+" Navigate between split windows easily
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 "status line
 "colours
@@ -82,9 +106,3 @@ set statusline+=%#POS#\
 set statusline+=%l/%L,%c\ 
 set statusline+=%p%%
 set statusline+=\ 
-
-"command binding
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
