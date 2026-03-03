@@ -5,15 +5,13 @@ set number
 "set cursorline
 set ruler
 set showcmd
-set showmatch
 set showmode
+let loaded_matchparen = 1
 
 syntax enable
 set background=dark
 set laststatus=2
-set statusline=%F\ %m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ %=%l/%L,%v\ %p%%
-"set statusline=%F\ %m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-"set statusline=hello\ %f\ %m 
+set statusline=%f\ %m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ %=%l/%L,%v\ %p%%
 
 set formatoptions=r
 set autoindent
