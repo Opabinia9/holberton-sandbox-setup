@@ -32,7 +32,7 @@ set background=dark
 
 "keybinding
 " Clear search highlighting with Escape
-"nnoremap <Esc> :nohlsearch<CR>
+nnoremap <leader>c :nohlsearch<CR>
 
 " Quick save and quit
 nnoremap <leader>w :w<CR>
