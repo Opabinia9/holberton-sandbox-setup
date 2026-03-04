@@ -13,6 +13,7 @@ set showcmd
 set formatoptions=r
 syntax enable
 let loaded_matchparen = 1
+set nowrap
 set autoindent
 set hlsearch
 set incsearch
